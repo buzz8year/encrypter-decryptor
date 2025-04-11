@@ -1,1 +1,1 @@
-Java encryption interface w/ few algorithms implemeted.
+Java encryption interface w/ few algorithms implemented.
