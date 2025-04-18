@@ -5,7 +5,8 @@ import encryptdecrypt.file.FileReader;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 
-public class Command {
+public class Command
+{
     private final String[] args;
 
     public int key = 0;
@@ -15,17 +16,20 @@ public class Command {
     public String out = null;
     public String data = null;
 
-    public Command(String[] args) {
+    public Command(String[] args) throws FileNotFoundException
+    {
         this.args = args;
+        this.setParams();
     }
 
-    public void setParams() throws FileNotFoundException {
-        setAlgorithm();
-        setMode();
-        setKey();
-        setIn();
-        setOut();
-        setData();
+    public void setParams() throws FileNotFoundException
+    {
+        this.setAlgorithm();
+        this.setMode();
+        this.setKey();
+        this.setIn();
+        this.setOut();
+        this.setData();
     }
 
     private void setAlgorithm() {
@@ -53,11 +57,14 @@ public class Command {
         if (i >= 0) out = args[i + 1];
     }
 
-    private void setData() throws FileNotFoundException {
+    private void setData() throws FileNotFoundException
+    {
         int i = Arrays.asList(args).indexOf("-data");
 
-        if (i >= 0) data = args[i + 1];
-        else if (in == null) data = "";
+        if (i >= 0)
+            data = args[i + 1];
+        else if (in == null)
+            data = "";
         else data = FileReader.read(in);
     }
 }

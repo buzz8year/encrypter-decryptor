@@ -1,5 +1,6 @@
 package encryptdecrypt.cypher;
 
-public interface Cypher {
+public interface Cypher
+{
     String execute(String s, int key);
 }
