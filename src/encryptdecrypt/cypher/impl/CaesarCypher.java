@@ -7,17 +7,10 @@ public class CaesarCypher extends AbstractCypher implements Cypher
 {
     private String template;
 
-    public CaesarCypher() {
-    }
-
-    public CaesarCypher(boolean modeEnc) {
-        this.setMode(modeEnc);
-    }
-
-    protected void setMode(boolean modeEnc)
+    public void setMode(boolean modeEnc)
     {
         super.setMode(modeEnc);
-        this.template = modeEnc
+        template = modeEnc
                 ? "abcdefghijklmnopqrstuvwxyz"
                 : "zyxwvutsrqponmlkjihgfedcba";
     }

@@ -10,7 +10,7 @@ public class Command
     private final String[] args;
 
     public int key = 0;
-    public String algo = "shift";
+    public String algo = "unicode";
     public String mode = "enc";
     public String in = null;
     public String out = null;

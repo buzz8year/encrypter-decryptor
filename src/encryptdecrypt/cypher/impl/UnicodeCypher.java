@@ -5,13 +5,6 @@ import encryptdecrypt.cypher.Cypher;
 
 public class UnicodeCypher extends AbstractCypher implements Cypher
 {
-    public UnicodeCypher() {
-    }
-
-    public UnicodeCypher(boolean modeEnc) {
-        super.setMode(modeEnc);
-    }
-
     public String execute(String s, int key)
     {
         StringBuilder sb = new StringBuilder();

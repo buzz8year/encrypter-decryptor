@@ -6,36 +6,36 @@ import encryptdecrypt.cypher.impl.UnicodeCypher;
 
 public class CypherFactory
 {
-    private Command command;
+    private final Command command;
     private Cypher cypher;
     private String result;
-    private boolean modeEnc;
-
-    public CypherFactory() {
-    }
 
     public CypherFactory(Command command)
     {
         this.command = command;
-        this.modeEnc = "enc".equals(command.mode);
         setCypher();
         run();
     }
 
+    public String getResult() {
+        return result;
+    }
+
     private void setCypher()
     {
-        if ("unicode".equals(command.algo))
-            this.cypher = new UnicodeCypher(modeEnc);
-        else this.cypher = new CaesarCypher(modeEnc);
+        if (command.algo.equals("unicode"))
+            cypher = new UnicodeCypher();
+
+        else if (command.algo.equals("caesar"))
+            cypher = new CaesarCypher();
+
+        // else ...
     }
 
-    public void run()
+    private void run()
     {
-        this.result = cypher.execute(command.data, command.key);
+        cypher.setMode(command.mode.equals("enc"));
+        result = cypher.execute(command.data, command.key);
     }
 
-    public String getResult()
-    {
-        return this.result;
-    }
 }
