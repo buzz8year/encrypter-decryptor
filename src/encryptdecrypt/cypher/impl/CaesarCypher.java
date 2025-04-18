@@ -5,19 +5,12 @@ import encryptdecrypt.cypher.Cypher;
 
 public class CaesarCypher extends AbstractCypher implements Cypher
 {
-    private String template;
-
-    public void setMode(boolean modeEnc)
-    {
-        super.setMode(modeEnc);
-        template = modeEnc
-                ? "abcdefghijklmnopqrstuvwxyz"
-                : "zyxwvutsrqponmlkjihgfedcba";
-    }
-
     public String execute(String s, int key)
     {
         StringBuilder sb = new StringBuilder();
+        String template = modeEnc
+                ? "abcdefghijklmnopqrstuvwxyz"
+                : "zyxwvutsrqponmlkjihgfedcba";
 
         for (char c : s.toCharArray())
         {
@@ -44,6 +37,5 @@ public class CaesarCypher extends AbstractCypher implements Cypher
 
         return sb.toString();
     }
-
 
 }
